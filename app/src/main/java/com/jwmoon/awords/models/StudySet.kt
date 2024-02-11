@@ -57,4 +57,14 @@ data class StudySet(
                 else -> SetSchedule.NONE
             }
         }
+
+    // preview를 위한 생성자
+    constructor(idx: Int) : this(
+        "$idx",
+        "$idx 번 단어장",
+        LocalDate.now(),
+        false,
+        FrontType.KANJI,
+        true
+    )
 }
