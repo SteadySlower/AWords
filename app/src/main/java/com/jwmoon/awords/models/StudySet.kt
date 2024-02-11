@@ -67,4 +67,10 @@ data class StudySet(
         FrontType.KANJI,
         true
     )
+
+    companion object {
+        val mockArray: Array<StudySet> by lazy {
+            (0 until 10).map { StudySet(it) }.toTypedArray()
+        }
+    }
 }
