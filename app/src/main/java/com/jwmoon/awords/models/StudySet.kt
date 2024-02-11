@@ -1,6 +1,8 @@
 package com.jwmoon.awords.models
 
 import java.time.LocalDate
+import java.time.temporal.ChronoUnit
+import java.util.Calendar
 import java.util.Date
 
 enum class FrontType {
@@ -41,4 +43,18 @@ data class StudySet(
     val closed: Boolean,
     val preferredFrontType: FrontType,
     val isAutoSchedule: Boolean
-)
+) {
+    val dayFromToday: Int
+        get() = ChronoUnit.DAYS.between(createdAt, LocalDate.now()).toInt()
+
+    val schedule: SetSchedule
+        get() {
+            val reviewInterval = listOf(3, 7, 14, 28)
+
+            return when {
+                dayFromToday in 0 until 3 -> SetSchedule.STUDY
+                dayFromToday in reviewInterval -> SetSchedule.REVIEW
+                else -> SetSchedule.NONE
+            }
+        }
+}
