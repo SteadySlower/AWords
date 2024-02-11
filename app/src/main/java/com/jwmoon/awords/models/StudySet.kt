@@ -2,8 +2,6 @@ package com.jwmoon.awords.models
 
 import java.time.LocalDate
 import java.time.temporal.ChronoUnit
-import java.util.Calendar
-import java.util.Date
 
 enum class FrontType {
     KANJI, MEANING;
@@ -69,8 +67,8 @@ data class StudySet(
     )
 
     companion object {
-        val mockArray: Array<StudySet> by lazy {
-            (0 until 10).map { StudySet(it) }.toTypedArray()
+        val mockList: List<StudySet> by lazy {
+            (0 until 10).map { StudySet(it) }
         }
     }
 }

@@ -16,7 +16,7 @@ import com.jwmoon.awords.views.StudySetCell
 import java.time.LocalDate
 
 @Composable
-fun StudySetList(sets: Array<StudySet>, modifier: Modifier = Modifier) {
+fun StudySetList(sets: List<StudySet>, modifier: Modifier = Modifier) {
     LazyColumn(
         modifier = Modifier
             .padding(horizontal = 20.dp)
@@ -36,7 +36,7 @@ fun StudySetList(sets: Array<StudySet>, modifier: Modifier = Modifier) {
 @Preview
 @Composable
 fun PreViewStudySetList() {
-    StudySetList(sets = Array(10) { index ->
+    StudySetList(sets = List(10) { index ->
         StudySet(idx = index + 1)
     }
     )
